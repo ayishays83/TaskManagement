@@ -149,3 +149,14 @@ A Postman collection is available in `docs/TaskFlow.postman_collection.json`.
 - No refresh tokens; the session ends when the token expires (60 minutes by default).
 - Tasks cannot be edited, reassigned or deleted after creation (not part of the brief).
 - Email delivery is mocked; no SMTP integration.
+## Testing
+
+The backend has xUnit unit tests (access rules, password hashing, notifications) and integration tests that run the real API in memory with an in-memory database.
+
+```bash
+dotnet test backend/TaskManagement.sln
+```
+
+## Continuous integration
+
+A GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every push and pull request to `main`. It builds and tests the backend, and lints and builds the frontend.
